@@ -1,7 +1,7 @@
 #import "APLViewController.h"
 #import "APLAppDelegate.h"
 
-static NSString *DownloadURLString = @"http://localhost/PoweredByMacOSXLarge.gif";
+static NSString *UploadURLString = @"http://localhost/result";
 
 @interface APLViewController ()
 
@@ -9,7 +9,7 @@ static NSString *DownloadURLString = @"http://localhost/PoweredByMacOSXLarge.gif
 @property (weak, nonatomic) IBOutlet UIProgressView *progressView;
 
 @property (nonatomic) NSURLSession *session;
-@property (nonatomic) NSURLSessionDownloadTask *downloadTask;
+@property (nonatomic) NSURLSessionUploadTask *uploadTask;
 
 @end
 
@@ -31,13 +31,13 @@ static NSString *DownloadURLString = @"http://localhost/PoweredByMacOSXLarge.gif
 
 - (IBAction)start:(id)sender
 {
-	if (self.downloadTask)
+	if (self.uploadTask)
     {
         return;
     }
 
     /*
-     Create a new download task using the URL session. Tasks start in the “suspended” state; to start a task you need to explicitly call -resume on a task after creating it.
+     Create a new u task using the URL session. Tasks start in the “suspended” state; to start a task you need to explicitly call -resume on a task after creating it.
      */
     NSURL *downloadURL = [NSURL URLWithString:DownloadURLString];
 	NSURLRequest *request = [NSURLRequest requestWithURL:downloadURL];
